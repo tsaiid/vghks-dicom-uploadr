@@ -44,7 +44,7 @@
   var fileUploadErrors = {
   maxFileSize: 'File is too big',
   minFileSize: 'File is too small',
-  acceptFileTypes: 'Filetype not allowed',
+  acceptFileTypes: '不接受此檔案格式',
   maxNumberOfFiles: 'Max number of files exceeded',
   uploadedBytes: 'Uploaded bytes exceed file size',
   emptyResult: 'Empty file upload result'
@@ -115,7 +115,9 @@
 <script type="text/javascript" charset="utf-8">
   $(function () {
       // Initialize the jQuery File Upload widget:
-      $('#fileupload').fileupload();
+      $('#fileupload').fileupload({
+        //acceptFileTypes: '/(\.|\/)(dcm|dicom)$/i'
+      });
       //
       // Load existing files:
       $.getJSON($('#fileupload').prop('action'), function (files) {
