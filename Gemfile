@@ -25,6 +25,11 @@ gem 'jquery-fileupload-rails'
 gem 'paperclip'
 gem 'twitter-bootstrap-rails'
 
+group :development do
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
