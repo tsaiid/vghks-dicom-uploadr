@@ -57,6 +57,21 @@ class UploadsController < ApplicationController
     end
   end
 
+  # POST /download
+  def download
+    ids = params[:file_list]
+    temp = Tempfile.new("zip-file-#{Time.now}")
+    Zip::ZipOutputStream.open(temp.path) do |z|
+      ids.each do |id|
+        upload = Upload.find(id.to_i)
+        z.put_next_entry(upload.upload_file_name)
+        z.print IO.read(upload.upload.path)
+      end
+    end
+    send_file temp.path, :type => 'application/zip', :disposition => 'attachment', :filename => "dicom.zip"
+    temp.close
+  end
+
   # PUT /uploads/1
   # PUT /uploads/1.json
   def update
