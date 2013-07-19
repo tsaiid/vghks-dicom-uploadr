@@ -30,6 +30,8 @@ group :development do
   gem 'rack-livereload'
 end
 
+gem 'rubyzip', :require => 'zip/zip'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
