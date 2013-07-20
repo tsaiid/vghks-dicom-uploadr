@@ -21,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'jquery-fileupload-rails'
+gem 'jquery-fileupload-rails', :git => 'git://github.com/tsaiid/jquery-fileupload-rails.git'
 gem 'paperclip'
 gem 'twitter-bootstrap-rails'
 
