@@ -8,11 +8,11 @@ $(document).ready(function() {
 
       //alert();
       //$.fileDownload($(this).parent().siblings('td.name').children('a').attr('href'));
-      file_list.push($(this).parent().siblings('td.name').children('input').val());
+      file_list.push($(this).siblings('input[name=id]').val());
       $('<input>', {
         "type": "hidden",
         "name": "file_list[]",
-        "value": $(this).parent().siblings('td.name').children('input').val()
+        "value": $(this).siblings('input[name=id]').val()
       }).appendTo('#download_form');
     });
 
@@ -23,7 +23,9 @@ $(document).ready(function() {
 //      .done(function() { alert("second success"); })
 //      .fail(function() { alert("error"); });
 //    $('input[name=file_list]').val(JSON.stringify(file_list));
-    $('#download_form').submit();
+    if ($('input[name="file_list[]"]').length) {
+      $('#download_form').submit();
+    }
   });
 
 });
