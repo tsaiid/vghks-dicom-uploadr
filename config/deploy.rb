@@ -1,5 +1,5 @@
 require 'rvm/capistrano'
-require "bundler/capistrano"
+#require "bundler/capistrano"
 
 #set :rvm_ruby_string, :local        # use the same ruby as used locally for deployment
 
