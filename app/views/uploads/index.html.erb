@@ -139,7 +139,8 @@
         var fu = $('#fileupload').data('blueimp-fileupload'),
           template;
 //        fu._adjustMaxNumberOfFiles(-files.length);
-        console.log(files);
+          // direct use console obj will cause error in IE.
+//        console.log(files);
         template = fu._renderDownload(files)
           .appendTo($('#fileupload .files'));
         // Force reflow:
