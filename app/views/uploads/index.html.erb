@@ -16,10 +16,11 @@ $(function() {
   uploadify_script_data[csrf_param] = encodeURI(csrf_token);
 
   $('#file_upload').uploadify({
-    'swf'      : 'assets/uploadify.swf',
-    'uploader' : 'uploads',
-    'cancelImg': 'assets/uploadify-cancel.png',
+    'swf'      : '/assets/uploadify.swf',
+    'uploader' : '/uploads',
     'fileObjName': 'upload[upload]',
+    'fileSizeLimit' : '10MB',
+//    'auto' : false,
     'formData' : uploadify_script_data
     // Put your options here
   });
