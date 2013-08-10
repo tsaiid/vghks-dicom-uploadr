@@ -1,7 +1,7 @@
 VghksDicomUploadr::Application.routes.draw do
   resources :uploads
   post 'download' => 'uploads#download'
-  get 'old' => 'uploads#old'
+  get 'manage' => 'uploads#manage'
   root :to => 'uploads#index'
 
   # The priority is based upon order of creation:
