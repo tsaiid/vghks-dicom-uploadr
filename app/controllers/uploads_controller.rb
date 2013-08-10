@@ -10,6 +10,15 @@ class UploadsController < ApplicationController
     end
   end
 
+  def old
+    @uploads = Upload.all
+
+    respond_to do |format|
+      format.html # old.html.erb
+      format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }
+    end
+  end
+
   # GET /uploads/1
   # GET /uploads/1.json
   def show
