@@ -17,7 +17,7 @@ $(function() {
 
   $('#file_upload').uploadify({
     'swf'      : '<%= asset_path "uploadify.swf" %>',
-    'uploader' : 'uploads',
+    'uploader' : '<%= uploads_path %>',
     'fileObjName': 'upload[upload]',
     'fileSizeLimit' : '10MB',
     'formData' : uploadify_script_data
