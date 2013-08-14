@@ -16,8 +16,8 @@ $(function() {
   uploadify_script_data[csrf_param] = encodeURI(csrf_token);
 
   $('#file_upload').uploadify({
-    'swf'      : '/assets/uploadify.swf',
-    'uploader' : '/uploads',
+    'swf'      : '<%= asset_path "uploadify.swf" %>',
+    'uploader' : 'uploads',
     'fileObjName': 'upload[upload]',
     'fileSizeLimit' : '10MB',
     'formData' : uploadify_script_data
