@@ -15,7 +15,14 @@ class UploadsController < ApplicationController
 
     respond_to do |format|
       format.html # manage.html.erb
-      format.json { render json: @uploads.map{|upload| upload.to_jq_upload } }
+      format.json { render json: @uploads.map{ |upload| {
+          "id" => upload.id,
+          "name" => upload.read_attribute(:upload_file_name),
+          "size" => upload.read_attribute(:upload_file_size),
+          "url" => path_to_image(upload.url(:original)),
+          "delete_url" => upload_path(upload),
+          "delete_type" => "DELETE"
+        } } }
     end
   end
 
