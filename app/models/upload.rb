@@ -10,7 +10,7 @@ class Upload < ActiveRecord::Base
       "id" => self.id,
       "name" => read_attribute(:upload_file_name),
       "size" => read_attribute(:upload_file_size),
-      "url" => ActionController::Base.helpers.path_to_image(upload.url(:original)),
+      "url" => upload.url(:original),
       "delete_url" => upload_path(self),
       "delete_type" => "DELETE"
     }
