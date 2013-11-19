@@ -70,13 +70,14 @@ class UploadsController < ApplicationController
   def download
     ids = params[:file_list]
     temp = Tempfile.new("zip-file-#{Time.now}")
-    Zip::ZipOutputStream.open(temp.path) do |z|
+    buffer = Zip::OutputStream.write_buffer do |z|
       ids.each do |id|
         upload = Upload.find(id.to_i)
         z.put_next_entry(upload.upload_file_name)
-        z.print IO.read(upload.upload.path)
+        z.write IO.read(upload.upload.path)
       end
     end
+    temp.write(buffer.string)
     send_file temp.path, :type => 'application/zip', :disposition => 'attachment', :filename => "dicom.zip"
     temp.close
   end
